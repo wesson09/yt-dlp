@@ -61,7 +61,7 @@ class PornHubBaseIE(InfoExtractor):
 
     def _set_age_cookies(self, host):
         self._set_cookie(host, 'age_verified', '1')
-        self._set_cookie(host, 'accessAgeDisclaimerPH', '1')
+        self._set_cookie(host, 'accessAgeDisclaimerPH', '2')
         self._set_cookie(host, 'accessAgeDisclaimerUK', '1')
         self._set_cookie(host, 'accessPH', '1')
 
@@ -281,7 +281,7 @@ class PornHubIE(PornHubBaseIE):
             self._set_cookie(host, 'platform', platform)
             return self._download_webpage(
                 f'https://www.{host}/view_video.php?viewkey={video_id}',
-                video_id, f'Downloading {platform} webpage')
+                video_id, f'Downloading {platform} webpage',impersonate=True)
 
         webpage = dl_webpage('pc')
 
